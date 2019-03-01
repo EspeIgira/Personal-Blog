@@ -1,20 +1,43 @@
 .container a {
-    border: 1px solid blue;
-    margin-right:100px;
-  } 
+border: 1px solid blue;
 
-  img{
-      float:left;
-  }
-  .container{
-      border:1px solid blue 5px;
-      padding:50px;
-      background-color:lightblue;
-      color:darkcyan;
-  }
-div h3{
+} 
+
+img{
+    float:left;
+}
+.container2{
     border:1px solid blue 5px;
+    padding:50px;
+    background-color:lightblue;
+    color:darkcyan;
+    
+    margin-right:150px;
+    margin-left:150px;
+}
+.container1{
+    border:1px solid blue 5px;
+    padding:50px;
+    background-color:lightblue;
+    color:darkcyan;
+    margin-top:150px;
+    margin-right:150px;
+    margin-left:150px;
+}
+center p{
+    margin-right:100px;
+}
+div h3{
+border:1px solid blue 5px;
 }
 body{
-    background-color:black;
+background-color:black;
+
 }
+.imgview{
+margin-left:200px;
+}
+.view{
+margin-left:90px;
+}
+

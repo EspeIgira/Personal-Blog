@@ -46,7 +46,7 @@ class User(UserMixin,db.Model):
 # pitch class ................
 
 # class Quotes(db.Model):
-#     __tablename__ = 'pitches'
+#     __tablename__ = 'quotes'
 
 #     id = db.Column(db.Integer,primary_key = True)
 #     quote= db.Column(db.String)
