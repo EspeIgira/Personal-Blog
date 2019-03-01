@@ -6,7 +6,7 @@ Creating an Application / Personal blog website with your opinions.
 ## Description
   
 {Personal blog is an application which allows the user to create his/her opinion on any subject(quotes). And other user can be able to read,comment.
-If the users want to posts on your blog their have to sign up.}, {Created 26th February 2019}
+If the users want to posts on your blog their have to sign up.}, {Created 01st March 2019}
 
 
 ## Setup/Installation Requirements
