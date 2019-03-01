@@ -5,7 +5,8 @@ Creating an Application / Personal blog website with your opinions.
  
 ## Description
   
-{Pitch one minute is an application that allows to create pitches according to categories, vote and comments them by users.}, {Created 26th February 2019}
+{Personal blog is an application which allows the user to create his/her opinion on any subject(quotes). And other user can be able to read,comment.
+If the users want to posts on your blog their have to sign up.}, {Created 26th February 2019}
 
 
 ## Setup/Installation Requirements
