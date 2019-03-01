@@ -1,0 +1,5 @@
+.container p {
+    border: 1px solid black;
+    /* border-radius: 25px; */
+    margin-right:100px;
+  }

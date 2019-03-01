@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Welcome to the best Movie Review website </title>
+        {% endif %}
+        {% extends 'base.html'%}
+        {% import 'macros.html' as macro%}
+
+<!-- Styles block -->
+
+        {% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+        {% endblock %}
+        
+    </head>
+  
+    <body>
+   
+
+    <!-- Content block -->
+   
+    {% block content %}
+<div class="pitch">
+   <div class="container">
+        <p class="cat_">PITCHES CATEGORIES</p>
+        <img src="https://cdn.lynda.com/course/728380/728380-636675048518746190-16x9.jpg" width="300">
+        <br><br>   
+        <p>You can comment and vote on pitches.</p>
+        <hr>
+        <br>
+        <p>|PICKUP LINES|</p>
+        <hr>
+        <p>- I'm not drunk, I'm just intoxicated by you.</p>
+        <p>- I see you, when you see me.</p>
+        <br>
+        <!-- <a href= "{{url_for('main.newpitch')}}">|Add New Pitch</a> -->
+        <a href= "{{url_for('main.comment')}}"> Comment|</a>
+        <a href= "{{url_for('main.vote')}}">Vote|</a>
+        <br><br>
+        <p>|INTERVIEW PITCH|</p>
+        <hr>
+        <p>- Who are you what do you do?</p>
+        <p>- What make yoou think you are good at this position?</p>
+        <p>- What do you want in your future career?</p>
+        <br>
+        <!-- <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a> -->
+        <a href= "{{url_for('main.comment')}}">  Comment|</a>
+        <a href= "{{url_for('main.vote')}}">  Vote|</a>
+        <br><br>
+        <p>|PRODUCT PITCH|</p>
+        <hr>
+        <p>- The goal is to sell.</p>
+        <p>- Too salesy?It'll put off your audience</p>
+        <p>- Are any of those product types?</p>
+        <br>
+        <!-- <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a> -->
+        <a href= "{{url_for('main.comment')}}">Comment|</a>
+        <a href= "{{url_for('main.vote')}}">  Vote|</a>
+        <br><br>
+        <p>|PROMOTION PITCH|</p>
+        <hr>
+        <p>- He replaced me in scranton when I got this promotion.</p>
+        <br>
+        <!-- <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a> -->
+        <a href= "{{url_for('main.comment')}}">  Comment|</a>
+        <a href= "{{url_for('main.vote')}}">  Vote|</a>
+
+
+        <br><br>
+    </div>
+     
+
+</div>
+<!--  
+    Popular movie -->
+    <!-- <h3> Popular user</h3>
+    <ul>
+        {{ macro.displayMovieList(popular)}}
+    </ul> -->
+    <!-- Upcoming movie  -->
+    <!-- <h3> Upcoming user </h3>
+    <ul>
+        {{ macro.displayMovieList(upcoming)}}
+    </ul> -->
+    <!-- Now showing movie 
+    <h3>Now Showing</h3>
+    <ul>
+        {{ macro.displayMovieList(now_showing)}}
+    </ul>
+-->
+
+     
+    
+{% endblock%}
+       
+</body>
+</html>

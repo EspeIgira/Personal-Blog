@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Styles block -->
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="border">
+        
+    <div class="container">
+         
+         <boder><p>My secret indulgent food is dessert. I have an incredible sweet tooth - chocolate pudding with vanilla ice-cream or trifle and pavlova. I do love dessert.
+                <img src="https://d2m1a7vdhhb67a.cloudfront.net/sites/default/files/styles/product_image/public/round-shaped-vanilla-cake-1-in-ghaziabad-cake0970flav-a.jpg?itok=v_xuPIsO" width="300">
+                </p></boder>
+
+        <!-- <img src="https://d2m1a7vdhhb67a.cloudfront.net/sites/default/files/styles/product_image/public/round-shaped-vanilla-cake-1-in-ghaziabad-cake0970flav-a.jpg?itok=v_xuPIsO" width="300"> -->
+
+        <img src="https://toistudent.timesofindia.indiatimes.com/cms/newsimages/image/Nitya%20images/princess%20cake.jpg" width="300">
+
+        <img src="https://toistudent.timesofindia.indiatimes.com/cms/newsimages/image/Nitya%20images/princess%20cake.jpg" width="300">
+
+        <img src="https://toistudent.timesofindia.indiatimes.com/cms/newsimages/image/Nitya%20images/princess%20cake.jpg" width="300">
+
+
+
+
+
+
+        <!-- <img src="https://cdn.lynda.com/course/728380/728380-636675048518746190-16x9.jpg" width="300">
+
+        <div class="selectpitch">
+            
+                <a href= "{{url_for('main.pickuplines')}}">Pickup Lines|</a>
+                <a href= "{{url_for('main.interview')}}"> Interview Pitch|</a>
+                <a href= "{{url_for('main.product')}}"> Product Pitch|</a>
+                <a href= "{{url_for('main.promotion')}}"> Promotion pitch</a>
+            <hr> -->
+        
+        </div>
+
+       
+       <!-- <p>You can write your pitches here according to any category you want.</p>
+       <hr>
+
+       <br>
+       <div class="add">
+        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+       </div>
+       <br>
+
+       <hr>
+       <p>View your pitches.</p>
+       {% for pitch in all_pitches %}
+    
+        <h2> {{ pitch.description}} </h2>
+        <p> {{ pitch.user }}</p>
+    
+      {% endfor %} -->
+    </div>
+</div>
+{% endblock %}
