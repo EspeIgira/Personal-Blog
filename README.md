@@ -39,5 +39,5 @@ If the users want to posts on your blog their have to sign up.}, {Created 01st M
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-*{copyright &copy:2019 EspeIgira: Pitch/one minute.}**
+*{copyright &copy:2019 EspeIgira: Personal Blog.}**
 
