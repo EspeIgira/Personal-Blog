@@ -1,8 +1,7 @@
 # Personal-Blog
 
-# Pitch-one-minute
 
-Creating an Application / Pitch one minute with Users.
+Creating an Application / Personal blog website with your opinions.
  
 ## Description
   
