@@ -20,8 +20,9 @@ def index():
 
     title = 'Personal blog Website Online'
     all_pitches = Pitches.get_pitches()
+    # all_quotes = Quotes.get_quotes()
 
-    return render_template('new_user.html',title = title, all_pitches=all_pitches)
+    return render_template('index.html',title = title, all_pitches=all_pitches)
 
 #Link user file and index file.............   
 
@@ -71,23 +72,23 @@ def update_pic(uname):
 @main.route('/pickup/')
 def pickuplines():
 
-    return render_template("index.html")
+    return render_template("new_user.html")
 
 
 @main.route('/interview/')
 def interview():
 
-    return render_template("index.html")
+    return render_template("new_user.html")
 
 @main.route('/product/')
 def product():
 
-    return render_template("index.html")
+    return render_template("new_user.html")
 
 @main.route('/promotion/')
 def promotion():
 
-    return render_template("index.html")
+    return render_template("new_user.html")
 
 #Able to comment,add,vote.................
 @main.route('/newpitch/',methods = ['GET','POST'])
@@ -118,7 +119,7 @@ def comment():
 @main.route('/vote/')
 def vote():
 
-    return render_template("index.html")
+    return render_template("new_user.html")
 
 
 

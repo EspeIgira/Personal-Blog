@@ -1,5 +1,5 @@
 .container a {
-    border: 1px solid lightcyan;
+    border: 1px solid blue;
     margin-right:100px;
   } 
 
@@ -7,10 +7,14 @@
       float:left;
   }
   .container{
-      border:1px solid lightblue 5px;
+      border:1px solid blue 5px;
       padding:50px;
       background-color:lightblue;
+      color:darkcyan;
   }
 div h3{
-    border:1px solid lightblue 5px;
+    border:1px solid blue 5px;
+}
+body{
+    background-color:black;
 }
