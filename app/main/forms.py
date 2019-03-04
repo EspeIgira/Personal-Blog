@@ -1,11 +1,18 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,SubmitField
-from wtforms.validators import Required
+from wtforms.validators import Required,Email
+from ..models import Subscribe
 
-class UserForm(FlaskForm):
+class CommentForm(FlaskForm):
 
    
-    user = TextAreaField('comment', validators=[Required()])
+    comment = TextAreaField('comment', validators=[Required()])
+    submit = SubmitField('Submit')
+
+
+class BlogForm(FlaskForm):
+   
+    blog = TextAreaField('blog',validators=[Required()])
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):
@@ -13,9 +20,10 @@ class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
     
-class AddBlog(FlaskForm):
 
-    comments = TextAreaField('comments', validators=[Required()])
-    submit = SubmitField('Add comment')
 
-    
+class SubscribeForm(FlaskForm):
+    email = StringField('Your Email Address',validators=[Required(),Email()])
+    name =  TextAreaField('add your username', validators=[Required()])
+    submit = SubmitField('Submit')
+

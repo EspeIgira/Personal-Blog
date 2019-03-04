@@ -10,22 +10,18 @@ def configure_request(app):
     
     base_url = app.config['QUOTES_API_BASE_URL']
 
-def get_blogs():
-    
-   
+def get_quotes():
 
-    with urllib.request.urlopen(base_url) as url:
-        get_blogs_data = url.read()
-        get_blogs_response = json.loads(get_blogs_data)
-       
+   with urllib.request.urlopen(base_url) as url:
+       get_quotes_data = url.read()
+       get_quotes_response = json.loads(get_quotes_data)
 
-    if get_blogs_response:
-        id = get_blogs_response.get('id')
-        author = get_blogs_response.get('author')
-        quote= get_blogs_response.get('quote')
-        
+       quote_object = None
 
-        blogs_object = Quote (id,author,quote)
+       if get_quotes_response:
+           id=get_quotes_response.get('id')
+           author=get_quotes_response.get('author')
+           quote=get_quotes_response.get('quote')
+           quote_object = Quote(id,author,quote)
 
-    return blogs_object
-
+   return quote_object
