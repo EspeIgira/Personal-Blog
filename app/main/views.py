@@ -19,10 +19,10 @@ def index():
     
 
     title = 'Personal blog Website Online'
-    all_pitches = Pitches.get_pitches()
-    # all_quotes = Quotes.get_quotes()
+    
+    all_quotes = Quotes.get_quotes()
 
-    return render_template('index.html',title = title, all_pitches=all_pitches)
+    return render_template('index.html',title = title, all_quotes=all_quotes)
 
 #Link user file and index file.............   
 
@@ -99,13 +99,13 @@ def newcomment():
   
     if form.validate_on_submit():
        
-        description= form.description.data
+        comments= form.comments.data
 
         # Updated review instance
-        new_pitch = Pitches(description = description ,user_id=current_user.id)
+        newcomment = Quotes(comments = comments ,user_id=current_user.id)
 
         # save review method
-        new_pitch.save_pitch()
+        newcomment.save_pitch()
         return redirect(url_for('.index'))
 
    

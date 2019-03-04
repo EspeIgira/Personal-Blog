@@ -107,7 +107,14 @@
     </ul>
 -->
 
-     
+<!-- <p>View your quotes.</p> -->
+{% for pitch in all_quotes %}
+
+ <h2> {{ quote.comments}} </h2>
+ <p> {{ quote.user }}</p>
+
+{% endfor %}
+</div>
     
 {% endblock%}
        
