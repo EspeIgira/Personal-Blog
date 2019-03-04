@@ -15,7 +15,7 @@ class UpdateProfile(FlaskForm):
     
 class AddQuote(FlaskForm):
 
-    comments = TextAreaField('quotes', validators=[Required()])
+    comments = TextAreaField('comments', validators=[Required()])
     submit = SubmitField('Add comment')
 
     

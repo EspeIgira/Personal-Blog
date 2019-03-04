@@ -20,9 +20,9 @@ def index():
 
     title = 'Personal blog Website Online'
     
-    all_quotes = Quotes.get_quotes()
+    all_comments = Quotes.get_comments()
 
-    return render_template('index.html',title = title, all_quotes=all_quotes)
+    return render_template('index.html',title = title, all_comments=all_comments)
 
 #Link user file and index file.............   
 
@@ -95,21 +95,21 @@ def promotion():
 @login_required
 def newcomment():
 
-    form = AddPitch()
+    form = AddQuote()
   
     if form.validate_on_submit():
        
         comments= form.comments.data
 
         # Updated review instance
-        newcomment = Quotes(comments = comments ,user_id=current_user.id)
+        newcomment = Comments(comments = comments ,user_id=current_user.id)
 
         # save review method
-        newcomment.save_pitch()
+        newcomment.save_comments()
         return redirect(url_for('.index'))
 
    
-    return render_template('new_user.html',newcomment=form)
+    return render_template('new_user.html',newcomment=newcomment)
 
 @main.route('/comment/')
 def comment():

@@ -105,7 +105,7 @@ class Comments(db.Model):
     quotes_id = db.Column(db.Integer, db.ForeignKey("quotes.id"))
 
 
-    def save_comment(self):
+    def save_comments(self):
         db.session.add(self)
         db.session.commit()
 
