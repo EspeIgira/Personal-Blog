@@ -91,7 +91,33 @@ def comment(id):
     return render_template('comment.html',form=form, blog= blog)
 
 
-@main.route('/blog', methods=['GET', 'POST'])
+@main.route('/subscribe/',methods=["GET","POST"])
+def subscribe():
+    
+    subscribeform=SubscribeForm()
+
+    
+    if form.validate_on_submit():
+       
+        # name = subscribeform.name.data
+        email = subscribeform.email.data
+        subscribe = Subscribe(email=email)
+        subscribe.save_blogs() 
+
+        db.session.add(subscribe)
+        db.session.commit()
+        
+        mail_message("welcome to our Blog"/welcome_user,subscribe.email,user=subscribe)
+
+        return redirect(url_for('main.index'))
+
+        title="subscribe"
+       
+
+    return render_template('subscribe.html',subscribeform=subscribeform)
+
+
+@main.route('/blog/', methods=['GET', 'POST'])
 @login_required
 def newblog():
     form = BlogForm()
@@ -112,24 +138,5 @@ def newblog():
     return render_template('newblog.html', form=form)
 
 
-
-@main.route('/subscribe',methods=["GET","POST"])
-def subscribe():
-    subscribeform=SubscribeForm()
-
-    if form.validate_on_submit():
-       
-        name = subscribeform.name.data
-        email = subscribeform.email.data
-        subscribe = Subscribe(name=name,email=email,user_id=current_user.id)
-        subscribe.save_blogs() 
-
-        db.session.add(subscribe)
-        db.session.commit()
-        
-        return redirect(url_for('main.index'))
-        # title = 'Subscribe'
-
-    return render_template('subscribe.html',subscribeform=subscribeform)
 
 

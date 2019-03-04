@@ -17,7 +17,7 @@
   <p>Author: {{quote.author}}</p>
   <br><br>
 
-  Click here to add blogs:  <a href="/blog">Blog</a></h1>
+  <p>Click here to add blogs: </p> <a class="blog" href="/blog">Blog</a></h1>
   <hr>
   {% for blog in all_blogs %}
   <div class="container-fluid">
@@ -32,16 +32,16 @@
         </div>
 
         <br>
-        <div class="card-footer">
+        <div class="footer">
           <div >
             <a href="/comment/{{blog.id}}">Comment</a>
-            <a href="/comment/{{blog.id}}">|  Subscribe</a>
-            <a href="/comment/{{blog.id}}">|  Delete</a>
-            <a href="/comment/{{blog.id}}">|  Update</a>
-            <hr>
+            <a href="/subscribe/{{blog.id}}">|  Subscribe</a>
+            <a href="/delete/{{blog.id}}">|  Delete</a>
+            <a href="/update/{{blog.id}}">|  Update</a>
             
           </div>
         </div>
+        <hr>
       </div>
       <br>
     </div>
