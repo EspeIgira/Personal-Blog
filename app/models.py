@@ -93,6 +93,11 @@ class Comment(db.Model):
        return blogs
 
 
+    def delete(self):
+       db.session.delete(self)
+       db.session.commit()
+
+
 
 
 class Subscribe(db.Model):
@@ -114,3 +119,6 @@ class Subscribe(db.Model):
     def get_subscribe(id):
        subscribe = Subscribe.query.all()
        return subscribe
+
+
+

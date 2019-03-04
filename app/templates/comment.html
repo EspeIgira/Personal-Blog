@@ -16,23 +16,24 @@
             <br>
           {{ wtf.quick_form(form) }}
      
-          <hr>  
+           
         </div>
 
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr>
 
-        {% for blog in all_blogs %}
-
-        {% for comment in blog.comments %}
+        {% for com in comment %}
 
         
 
 
-        <h2> {{ comment.description}} </h2>
+        <h2> {{ com.description}} </h2>
        
+        <a href="/delete/{{com.id}}"><button>Delete</button></a>
     
         {% endfor %}
-        {% endfor %}
-        
+
+    
 
     </div>
 
