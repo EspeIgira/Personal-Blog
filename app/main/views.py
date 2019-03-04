@@ -25,7 +25,7 @@ def index():
     
     all_comments = Comments.get_comments()
 
-    return render_template('index.html',title = title, form=form,all_comments=all_comments)
+    return render_template('new_user.html',title = title, form=form,all_comments=all_comments)
 
 #Link user file and index file.............   
 
