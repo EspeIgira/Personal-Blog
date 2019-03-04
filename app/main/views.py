@@ -20,7 +20,7 @@ def index():
 
     title = 'Personal blog Website Online'
     
-    all_comments = Quotes.get_comments()
+    all_comments = Comments.get_comments()
 
     return render_template('index.html',title = title, all_comments=all_comments)
 
@@ -92,7 +92,7 @@ def promotion():
 
 #Able to comment,add,vote.................
 @main.route('/newcomment/',methods = ['GET','POST'])
-@login_required
+# @login_required
 def newcomment():
 
     form = AddQuote()
@@ -109,7 +109,7 @@ def newcomment():
         return redirect(url_for('.index'))
 
    
-    return render_template('new_user.html',newcomment=newcomment)
+    return render_template('new_user.html',form=form)
 
 @main.route('/comment/')
 def comment():

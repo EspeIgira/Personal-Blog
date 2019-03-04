@@ -62,10 +62,13 @@ class Quotes(db.Model):
         Quotes.all_quotes.clear()
 
     @classmethod
-    def get_quotess(id):
+    def get_quotes(id):
 
         quotes = Quotes.query.all()
         return quotes
+
+
+
 
 # class Pitches(db.Model):
 #     __tablename__ = 'pitches'
@@ -110,12 +113,16 @@ class Comments(db.Model):
         db.session.commit()
 
     @classmethod
+    def clear_comments(cls):
+        Comments.all_comments.clear()
+
+    @classmethod
     def get_comments(self,id):
 
     
-        comment = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()
+        comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()
 
-        return comment
+        return comments
 
 
 # class Comments(db.Model):
