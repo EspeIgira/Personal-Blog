@@ -15,8 +15,7 @@
             <p>__________________</p>
             <br>
           {{ wtf.quick_form(form) }}
-     
-           
+      
         </div>
 
         <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -24,19 +23,10 @@
 
         {% for com in comment %}
 
-        
-
-
         <h2> {{ com.description}} </h2>
        
         <a href="/delete/{{com.id}}"><button>Delete</button></a>
     
         {% endfor %}
-
-    
-
     </div>
-
-
-
 {% endblock %}
