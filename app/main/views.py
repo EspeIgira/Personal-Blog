@@ -21,10 +21,11 @@ def index():
 
 
     title = 'Personal blog Website Online'
+   
     
-    # all_comments = Comments.get_comments()
+    all_comments = Comments.get_comments()
 
-    return render_template('index.html',title = title, form=form)
+    return render_template('index.html',title = title, form=form,all_comments=all_comments)
 
 #Link user file and index file.............   
 
