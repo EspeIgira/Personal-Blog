@@ -1,9 +1,9 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required, current_user
-from ..models import User,Pitches
+from ..models import User,Quotes
 
-from .forms import UserForm,UpdateProfile,AddPitch
+from .forms import UserForm,UpdateProfile,AddQuote
 from .. import db,photos
 
 
@@ -91,9 +91,9 @@ def promotion():
     return render_template("new_user.html")
 
 #Able to comment,add,vote.................
-@main.route('/newpitch/',methods = ['GET','POST'])
+@main.route('/newcomment/',methods = ['GET','POST'])
 @login_required
-def newpitch():
+def newcomment():
 
     form = AddPitch()
   
@@ -109,7 +109,7 @@ def newpitch():
         return redirect(url_for('.index'))
 
    
-    return render_template('addpitch.html',new_pitch=form)
+    return render_template('new_user.html',newcomment=form)
 
 @main.route('/comment/')
 def comment():
