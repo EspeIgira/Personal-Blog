@@ -2,6 +2,7 @@ from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required, current_user
 from ..models import User,Quotes
+from ..request import get_blogs
 
 from .forms import UserForm,UpdateProfile,AddQuote
 from .. import db,photos
@@ -16,13 +17,13 @@ def index():
     '''
     # form = UserForm()
 
-    
+    quote_blogs = get_blogs()
 
     title = 'Personal blog Website Online'
     
     all_comments = Comments.get_comments()
 
-    return render_template('index.html',title = title, all_comments=all_comments)
+    return render_template('index.html',title = title, all_comments=all_comments,quote_blogs=quote_blogs)
 
 #Link user file and index file.............   
 

@@ -5,10 +5,21 @@ from . import login_manager
 
 
 
-
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+    
+class Blog:
+    
+
+    def __init__(self,id,author,quote):
+        self.id =id
+        self.author = author
+        self.quote = quote
+   
+
+
+
 
 
 class User(UserMixin,db.Model):
@@ -41,7 +52,7 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
         
-# pitch class ................
+
 
 class Quotes(db.Model):
     __tablename__ = 'quotes'
@@ -68,31 +79,6 @@ class Quotes(db.Model):
         return quotes
 
 
-
-
-# class Pitches(db.Model):
-#     __tablename__ = 'pitches'
-
-#     id = db.Column(db.Integer,primary_key = True)
-#     description= db.Column(db.String)
-#     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    
-
-
-#     def save_pitch(self):
-#         db.session.add(self)
-#         db.session.commit()
-
-
-#     @classmethod
-#     def clear_pitches(cls):
-#         Pitches.all_pitches.clear()
-
-#     @classmethod
-#     def get_pitches(id):
-
-#         pitches = Pitches.query.all()
-#         return pitches
 
 
 
@@ -125,34 +111,42 @@ class Comments(db.Model):
         return comments
 
 
-# class Comments(db.Model):
-#     __tablename__ = 'comments'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
-#     id = db.Column(db. Integer, primary_key=True)
-#     comments = db.Column(db.String(255))
-#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-#     pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+class Subscribe(UserMixin,db.Model):
+    __tablename__ = 'subscribe'
 
-
-#     def save_comment(self):
-#         db.session.add(self)
-#         db.session.commit()
-
-#     @classmethod
-#     def get_comments(self,id):
-
-    
-#         comment = Comments.query.order_by(Comments.time_posted.desc()).filter_by(pitches_id=id).all()
-
-#         return comment
-
-
-
-
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column(db.String(255),index = True)
+    email = db.Column(db.String(255),unique = True,index = True)
     
 
 
+    def save_subscribe(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    @classmethod
+    def get_subscribe(self,id):
+
+    
+        comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()
+
+        return comments
+
+    def __repr__(self):
+        return f'User {self.username}'
+        
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+    
+    
 
 
 
