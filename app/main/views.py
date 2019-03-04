@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required, current_user
-from ..models import User,Quotes
+from ..models import User,Quotes,Comments,Subscribe
 from ..request import get_blogs
 
 from .forms import UserForm,UpdateProfile,AddQuote
@@ -18,6 +18,7 @@ def index():
     # form = UserForm()
 
     quote_blogs = get_blogs()
+
 
     title = 'Personal blog Website Online'
     

@@ -17,11 +17,12 @@ def get_blogs():
     with urllib.request.urlopen(base_url) as url:
         get_blogs_data = url.read()
         get_blogs_response = json.loads(get_blogs_data)
+       
 
-
-        id = blogs_details_response.get('id')
-        author = blogs_details_response.get('author')
-        quote= blogs_details_response.get('quote')
+    if get_blogs_response:
+        id = get_blogs_response.get('id')
+        author = get_blogs_response.get('author')
+        quote= get_blogs_response.get('quote')
         
 
         blogs_object =Blog (id,author,quote)

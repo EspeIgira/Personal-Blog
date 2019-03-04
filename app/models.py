@@ -8,7 +8,7 @@ from . import login_manager
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
-    
+
 class Blog:
     
 
@@ -59,7 +59,8 @@ class Quotes(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     quote= db.Column(db.String)
-    Comments_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    Comments_id = db.Column(db.Integer,db.ForeignKey("comments.id"))
+    commentquote = db.relationship("Comments", backref="quote", lazy = "dynamic")
     
 
 
@@ -98,12 +99,21 @@ class Comments(db.Model):
         db.session.add(self)
         db.session.commit()
 
+
+    def delete_comments(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update_comments(self):
+        db.session.add(self)
+        db.session.commit()
+
     @classmethod
     def clear_comments(cls):
         Comments.all_comments.clear()
 
     @classmethod
-    def get_comments(self,id):
+    def get_comments(id):
 
     
         comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()

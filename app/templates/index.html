@@ -102,18 +102,18 @@
     </ul> -->
     <!-- Now showing movie 
     <h3>Now Showing</h3>
-    <ul>
+    <ul>get_blogs_details_response
         {{ macro.displayMovieList(now_showing)}}
     </ul>
 -->
 
 <!-- <p>View your quotes.</p> -->
-{% for pitch in all_quotes %}
 
- <h2> {{ quote.comments}} </h2>
- <p> {{ quote.user }}</p>
 
-{% endfor %}
+ <h2> {{ quote_blogs.author}} </h2>
+ <p> {{ quote_blogs.quote }}</p>
+
+
 </div>
     
 {% endblock%}
