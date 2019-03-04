@@ -20,10 +20,10 @@
         <center>
             <!-- <p>My secret indulgent food is dessert.I have an incredible sweet tooth <br>- chocolate pudding with vanilla ice-cream or trifle and pavlova. I do love dessert.<br><br> -->
             </p>
-            <a href= "{{url_for('main.pickuplines')}}">Comment</a>
-            <a href= "{{url_for('main.interview')}}"> Subscribe</a>
-            <a href= "{{url_for('main.interview')}}"> Delete</a>
-            <a href= "{{url_for('main.interview')}}"> Update</a>
+            <a href= "{{url_for('main.comment')}}">Comment</a>
+            <a href= "{{url_for('main.subscribe')}}"> Subscribe</a>
+            <a href= "{{url_for('main.delete')}}"> Delete</a>
+            <a href= "{{url_for('main.update')}}"> Update</a>
 
             <div class="col-md-4 form" >
                 <br>
@@ -47,10 +47,10 @@
             <!-- <p>I miss Swedish princess cake, <br>but you can get them pretty much anywhere.</p><br><br> -->
                 
 
-            <a href= "{{url_for('main.pickuplines')}}">Comment</a>
-            <a href= "{{url_for('main.interview')}}"> Subscribe</a>
-            <a href= "{{url_for('main.interview')}}"> Delete</a>
-            <a href= "{{url_for('main.interview')}}"> Update</a>
+            <a href= "{{url_for('main.comment')}}">Comment</a>
+            <a href= "{{url_for('main.subscribe')}}"> Subscribe</a>
+            <a href= "{{url_for('main.delete')}}"> Delete</a>
+            <a href= "{{url_for('main.update')}}"> Update</a>
     
         </center>
 
@@ -64,52 +64,16 @@
             <!-- <p>I like all sorts of chocolate. Milk chocolate, <br>dark chocolate,but I'm in love with white chocolate icing.</p><br><br> -->
             
 
-            <a href= "{{url_for('main.pickuplines')}}">Comment</a>
-            <a href= "{{url_for('main.interview')}}"> Subscribe</a>
-            <a href= "{{url_for('main.interview')}}"> Delete</a>
-            <a href= "{{url_for('main.interview')}}"> Update</a>
+            <a href= "{{url_for('main.comment')}}">Comment</a>
+            <a href= "{{url_for('main.subscribe')}}"> Subscribe</a>
+            <a href= "{{url_for('main.delete')}}"> Delete</a>
+            <a href= "{{url_for('main.update')}}"> Update</a>
     
        </center>
        <br><br><br><br><br><br><br><br>
        <hr blue>
 
         
-
-
-
-
-
-
-        <!-- <img src="https://cdn.lynda.com/course/728380/728380-636675048518746190-16x9.jpg" width="300">
-
-        <div class="selectpitch">
-            
-                <a href= "{{url_for('main.pickuplines')}}">Pickup Lines|</a>
-                <a href= "{{url_for('main.interview')}}"> Interview Pitch|</a>
-                <a href= "{{url_for('main.product')}}"> Product Pitch|</a>
-                <a href= "{{url_for('main.promotion')}}"> Promotion pitch</a>
-            <hr> -->
-        
-        </div>
-
-       
-       <!-- <p>You can write your pitches here according to any category you want.</p>
-       <hr>
-
-       <br>
-       <div class="add">
-        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
-       </div>
-       <br>
-
-       <hr>
-       <p>View your pitches.</p>
-       {% for pitch in all_pitches %}
-    
-        <h2> {{ pitch.description}} </h2>
-        <p> {{ pitch.user }}</p>
-    
-      {% endfor %} -->
     </div>
 </div>
 {% endblock %}

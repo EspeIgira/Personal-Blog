@@ -1,10 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required, current_user
-from ..models import User,Quotes,Comments,Subscribe
+from ..models import User,Blogs,Comments,Subscribe
 from ..request import get_blogs
 
-from .forms import UserForm,UpdateProfile,AddQuote
+from .forms import UserForm,UpdateProfile,AddBlog
 from .. import db,photos
 
 
@@ -15,16 +15,16 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    # form = UserForm()
+    form = UserForm()
 
-    quote_blogs = get_blogs()
+    
 
 
     title = 'Personal blog Website Online'
     
-    all_comments = Comments.get_comments()
+    # all_comments = Comments.get_comments()
 
-    return render_template('index.html',title = title, all_comments=all_comments,quote_blogs=quote_blogs)
+    return render_template('index.html',title = title, form=form)
 
 #Link user file and index file.............   
 
@@ -71,24 +71,24 @@ def update_pic(uname):
 
 
 
-@main.route('/pickup/')
-def pickuplines():
+@main.route('/comment/')
+def comment():
 
     return render_template("new_user.html")
 
 
-@main.route('/interview/')
-def interview():
+@main.route('/subscribe/')
+def subscribe():
 
     return render_template("new_user.html")
 
-@main.route('/product/')
-def product():
+@main.route('/delete/')
+def delete():
 
     return render_template("new_user.html")
 
-@main.route('/promotion/')
-def promotion():
+@main.route('/update/')
+def update():
 
     return render_template("new_user.html")
 
@@ -97,7 +97,7 @@ def promotion():
 # @login_required
 def newcomment():
 
-    form = AddQuote()
+    form = AddBlog()
   
     if form.validate_on_submit():
        
@@ -113,15 +113,15 @@ def newcomment():
    
     return render_template('new_user.html',form=form)
 
-@main.route('/comment/')
-def comment():
+# @main.route('/comment/')
+# def comment():
 
-    return render_template("comment.html")
+#     return render_template("comment.html")
 
-@main.route('/vote/')
-def vote():
+# @main.route('/vote/')
+# def vote():
 
-    return render_template("new_user.html")
+#     return render_template("new_user.html")
 
 
 

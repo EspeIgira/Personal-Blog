@@ -1,6 +1,6 @@
 
 import urllib.request,json
-from .models import Blog
+from .models import Quote
 
 
 base_url = None
@@ -25,7 +25,7 @@ def get_blogs():
         quote= get_blogs_response.get('quote')
         
 
-        blogs_object =Blog (id,author,quote)
+        blogs_object = Quote (id,author,quote)
 
     return blogs_object
 

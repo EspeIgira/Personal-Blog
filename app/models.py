@@ -9,16 +9,6 @@ from . import login_manager
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class Blog:
-    
-
-    def __init__(self,id,author,quote):
-        self.id =id
-        self.author = author
-        self.quote = quote
-   
-
-
 
 
 
@@ -30,8 +20,8 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    quotes_id=db.relationship("Quotes", backref="user", lazy = "dynamic")
-    comments_id=db.relationship("comments", backref="user", lazy = "dynamic")
+    blogs=db.relationship("Blogs", backref="user", lazy = "dynamic")
+    comments_id=db.relationship("Comments", backref="user", lazy = "dynamic")
     password_hash = db.Column(db.String(255))
     pass_secure = db.Column(db.String(255))
 
@@ -54,51 +44,45 @@ class User(UserMixin,db.Model):
         
 
 
-class Quotes(db.Model):
-    __tablename__ = 'quotes'
+class Blogs(db.Model):
+    __tablename__ = 'blogs'
 
     id = db.Column(db.Integer,primary_key = True)
     quote= db.Column(db.String)
-    Comments_id = db.Column(db.Integer,db.ForeignKey("comments.id"))
-    commentquote = db.relationship("Comments", backref="quote", lazy = "dynamic")
+    author= db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    comments = db.relationship("Comments", backref="blogs", lazy = "dynamic")
     
-
-
-    def save_quote(self):
+    def save_Blogs(self):
         db.session.add(self)
         db.session.commit()
-
+    
+    @classmethod
+    def clear_Blogs(cls):
+        Blogs.all_quotes.clear()
 
     @classmethod
-    def clear_quotes(cls):
-        Quotes.all_quotes.clear()
+    def get_Blogs(id):
 
-    @classmethod
-    def get_quotes(id):
+        blogs = Blogs.query.all()
 
-        quotes = Quotes.query.all()
-        return quotes
+        return blogs
 
 
 
-
-
-# comments class..........
 
 class Comments(db.Model):
     __tablename__ = 'comments'
 
 
     id = db.Column(db. Integer, primary_key=True)
-    comments = db.Column(db.String(255))
+    comment = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    quotes_id = db.Column(db.Integer, db.ForeignKey("quotes.id"))
-
-
+    blogs_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
+    
     def save_comments(self):
         db.session.add(self)
         db.session.commit()
-
 
     def delete_comments(self):
         db.session.add(self)
@@ -113,18 +97,14 @@ class Comments(db.Model):
         Comments.all_comments.clear()
 
     @classmethod
-    def get_comments(id):
+    def get_comments(cls, id):
 
     
-        comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()
+        comment = Comments.query.filter_by(blogs_id=id).all()
 
-        return comments
+        return comment
 
 
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 
 class Subscribe(UserMixin,db.Model):
@@ -143,18 +123,22 @@ class Subscribe(UserMixin,db.Model):
 
     @classmethod
     def get_subscribe(self,id):
-
-    
-        comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(quotes_id=id).all()
+        comments = Comments.query.order_by(Comments.time_posted.desc()).filter_by(blogs_id=id).all()
 
         return comments
 
     def __repr__(self):
         return f'User {self.username}'
+
+
         
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+class Quote:
+    
+    def __init__(self,id,author,quote):
+        self.id =id
+        self.author = author
+        self.quote = quote
+   
     
     
 
