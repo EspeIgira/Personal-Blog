@@ -84,6 +84,10 @@ def comment(id):
         comment.save_comments()
         return redirect(url_for('main.index'))
 
+
+        db.session.add(comment)
+        db.session.commit()
+
     return render_template('comment.html',form=form, blog= blog)
 
 
@@ -92,32 +96,40 @@ def comment(id):
 def newblog():
     form = BlogForm()
     
-    if blog_form.validate_on_submit():
+    if form.validate_on_submit():
         
-        blog = blogform.blog.data
-        # user_id = blog_form.user_id.data
+        blog = form.blog.data
+        
         newblog = Blog(blog=blog,user_id=current_user.id)
         newblog.save_blogs() 
     
         return redirect(url_for('main.index'))
 
-    return render_template('/blog.html', form=form)
+
+        db.session.add(blog)
+        db.session.commit()
+
+    return render_template('newblog.html', form=form)
 
 
 
 @main.route('/subscribe',methods=["GET","POST"])
 def subscribe():
-    form=SubscribeForm()
+    subscribeform=SubscribeForm()
 
     if form.validate_on_submit():
        
-        email = form.email.data
-        subscriber = Subscribe()
-        db.session.add(subscriber)
-        db.session.commit()
-        return redirect(url_for('main.index'))
-        title = 'Subscribe'
+        name = subscribeform.name.data
+        email = subscribeform.email.data
+        subscribe = Subscribe(name=name,email=email,user_id=current_user.id)
+        subscribe.save_blogs() 
 
-    return render_template('subscribe.html',form=form)
+        db.session.add(subscribe)
+        db.session.commit()
+        
+        return redirect(url_for('main.index'))
+        # title = 'Subscribe'
+
+    return render_template('subscribe.html',subscribeform=subscribeform)
 
 

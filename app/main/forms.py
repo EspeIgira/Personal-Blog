@@ -6,7 +6,7 @@ from ..models import Subscribe
 class CommentForm(FlaskForm):
 
    
-    comment = TextAreaField('comment', validators=[Required()])
+    description = TextAreaField('comment', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -23,7 +23,8 @@ class UpdateProfile(FlaskForm):
 
 
 class SubscribeForm(FlaskForm):
+
+    # name =  TextAreaField('add your username', validators=[Required()])
     email = StringField('Your Email Address',validators=[Required(),Email()])
-    name =  TextAreaField('add your username', validators=[Required()])
     submit = SubmitField('Submit')
 

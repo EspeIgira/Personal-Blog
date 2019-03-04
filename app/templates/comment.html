@@ -11,11 +11,28 @@
     <div class="container">
         
         <div class="col-md-4 form" >
+            <p>Add your comment</p>
+            <p>__________________</p>
             <br>
           {{ wtf.quick_form(form) }}
      
           <hr>  
         </div>
+
+
+        {% for blog in all_blogs %}
+
+        {% for comment in blog.comments %}
+
+        
+
+
+        <h2> {{ comment.description}} </h2>
+       
+    
+        {% endfor %}
+        {% endfor %}
+        
 
     </div>
 

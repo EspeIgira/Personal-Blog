@@ -1,5 +1,4 @@
 
-
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 <!-- Styles block -->
@@ -12,11 +11,14 @@
 </div>
 <blockquote class="text-center text-lg">
   <h2>Quotes Blog</h2>
+  <p>______________________</p>
+  
   <p>{{quote.quote}}</p>
-  <p>author: {{quote.author}}</p>
+  <p>Author: {{quote.author}}</p>
   <br><br>
 
-  <a href="/blog">Blog</a></h1>
+  Click here to add blogs:  <a href="/blog">Blog</a></h1>
+  <hr>
   {% for blog in all_blogs %}
   <div class="container-fluid">
     <div class="card-deck">
@@ -31,8 +33,12 @@
 
         <br>
         <div class="card-footer">
-          <div class="container-fluid write">
-            <a class="btn btn-primary btn-md" href="/newcomment/{{blog.id}}">Comment</a>
+          <div >
+            <a href="/comment/{{blog.id}}">Comment</a>
+            <a href="/comment/{{blog.id}}">|  Subscribe</a>
+            <a href="/comment/{{blog.id}}">|  Delete</a>
+            <a href="/comment/{{blog.id}}">|  Update</a>
+            <hr>
             
           </div>
         </div>
