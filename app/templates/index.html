@@ -38,7 +38,7 @@
     </div>
     <br><br><br><br><br><br><br>
     
-    <center class="view"><p>Welcome to our quotes blog, you can view them</p><a href= "{{url_for('main.comment')}}"> View Quotes</a></center>
+    <center class="view"><h3>Welcome to our quotes blog, you can view them</h3><a href= "{{url_for('main.comment')}}"> View Quotes</a></center>
 
     </div>
      
@@ -64,12 +64,16 @@
 
 <!-- <p>View your quotes.</p> -->
 
-
- <h2> {{blogs.author}} </h2>
+{% for blogs in all_comments %}
+    
+<h2> {{blogs.author}} </h2>
  <p> {{blogs.quote }}</p>
 
+{% endfor %}
 
 </div>
+
+
     
 {% endblock%}
        
