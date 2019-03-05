@@ -1,7 +1,7 @@
 {% if user == current_user %}
     <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
 {% endif %}
-<div class="profile"></div>
+<div class="profile" style="background-color:black;">
 <div class="col-md-4">
     {% if user.profile_pic_path %}
 
