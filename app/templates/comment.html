@@ -9,7 +9,9 @@
 {% endblock %}
 
     <div class="container">
+
         
+    
         <div class="col-md-4 form" >
             <p>Add your comment</p>
             <p>__________________</p>
@@ -29,4 +31,10 @@
     
         {% endfor %}
     </div>
+    <a href="{{url_for('main.index')}}">
+            <button type="button" class="btn btn-primary btn-sm" style="margin-bottom:10px;">
+                <span class="glyphicon glyphicon-chevron-left" ></span> Back
+            </button></a>
+    <br><br><br> 
+         
 {% endblock %}

@@ -7,7 +7,7 @@ from flask_mail import Mail
 from .forms import BlogForm,CommentForm,UpdateProfile,SubscribeForm
 from .. import db,photos
 from ..email import mail_message
-
+# from .forms import UpdateForm
 
 
 @main.route('/')
@@ -157,3 +157,21 @@ def delete(id):
     return render_template('comment.html', form = form)
 
 
+
+# @main.route('/update/<int:id>', methods=['GET','POST'])
+# def update(id):
+#     blog = Blog.query.filter_by(id=id).first()
+    
+#     if blog is not None:
+#         abort(404)
+
+#     form = UpdateForm()
+#     if form.validate_on_submit():
+     
+#         blog.blog=form.content.data
+
+#         db.session.add(blog)
+#         db.session.commit()
+#         return redirect (url_for('main.index'))
+        
+#     return render_template('update.html', form = form)
